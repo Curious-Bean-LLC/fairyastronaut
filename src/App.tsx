@@ -1,34 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import './App.css'
+import Home from './pages/Home'
+import Merch from './pages/Merch'
+import Shows from './pages/Shows'
+import About from './pages/About'
 
-function App() {
-  const [count, setCount] = useState(0)
+function Navigation() {
+  const navigate = useNavigate()
+  const location = useLocation()
 
   return (
-    <>
-      <div>
-        <a href='https://vite.dev' target='_blank'>
-          <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
-          <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <nav className='navbar'>
+      <div className='nav-buttons'>
+        <button 
+          className={`nav-button ${location.pathname === '/' ? 'active' : ''}`}
+          onClick={() => navigate('/')}
+        >
+          Home
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+        <button 
+          className={`nav-button ${location.pathname === '/merch' ? 'active' : ''}`}
+          onClick={() => navigate('/merch')}
+        >
+          Merch
+        </button>
+        <button 
+          className={`nav-button ${location.pathname === '/shows' ? 'active' : ''}`}
+          onClick={() => navigate('/shows')}
+        >
+          Shows
+        </button>
+        <button 
+          className={`nav-button ${location.pathname === '/about' ? 'active' : ''}`}
+          onClick={() => navigate('/about')}
+        >
+          About
+        </button>
       </div>
-      <p className='read-the-docs'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </nav>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Navigation />
+      <main className='content'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/merch' element={<Merch />} />
+          <Route path='/shows' element={<Shows />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   )
 }
 
