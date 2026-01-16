@@ -91,10 +91,10 @@ function App() {
         <a href="https://www.youtube.com/@FAIRYASTRONAUT" target="_blank" rel="noopener noreferrer" title="YouTube">
           <FaYoutube />
         </a>
-        <a href="https://www.tiktok.com/@FAIRYASTRONAUT" target="_blank" rel="noopener noreferrer" title="TikTok">
+        <a href="https://www.tiktok.com/@FAIRY.ASTRONAUT" target="_blank" rel="noopener noreferrer" title="TikTok">
           <FaTiktok />
         </a>
-        <a href="https://open.spotify.com/artist/FAIRYASTRONAUT" target="_blank" rel="noopener noreferrer" title="Spotify">
+        <a href="https://open.spotify.com/artist/2o2CoR0mS78JbibKCr4q4q?si=8l2_8JLESqmMD3MRs5aUFw" target="_blank" rel="noopener noreferrer" title="Spotify">
           <FaSpotify />
         </a>
       </div>
