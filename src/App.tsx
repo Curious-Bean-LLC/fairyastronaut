@@ -97,6 +97,9 @@ function App() {
         <a href="https://open.spotify.com/artist/2o2CoR0mS78JbibKCr4q4q?si=8l2_8JLESqmMD3MRs5aUFw" target="_blank" rel="noopener noreferrer" title="Spotify">
           <FaSpotify />
         </a>
+        <a href='https://gofishtalent.com/talent/fairy-astronaut' target="_blank" rel="noopener noreferrer" title="Booking">
+          EPK
+        </a>
       </div>
       
       <main className={`content ${isHome ? 'home-content' : 'nested-content'}`}>
