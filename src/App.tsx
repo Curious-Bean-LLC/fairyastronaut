@@ -26,9 +26,9 @@ function App() {
   const navigate = useNavigate()
 
   return (
-    <div className='flex flex-col items-center gap-1'>
+    <div className='flex flex-col items-center gap-1 bg-yellow-50'>
       {/* header */}
-      <div className='flex space-between items-center justify-between w-full px-4 py-2 border-b border-gray-300'>
+      <div className='flex space-between items-center justify-between w-full px-4 py-2 bg-yellow-300'>
         <div className=''>
           <img
             className='logo'

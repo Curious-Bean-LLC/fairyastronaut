@@ -15,9 +15,9 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
   }[span]
 
   return (
-    <div className={`newsletter-media border border-gray-300 p-4 rounded ${widthClass}`}>
+    <div className={`newsletter-media border border-yellow-600 p-4 ${widthClass}`}>
       {media.title && (
-        <h3 className='text-lg font-bold mb-3'>{media.title}</h3>
+        <h3 className='text-lg mb-3'>{media.title}</h3>
       )}
       
       {media.image && (
@@ -46,9 +46,9 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
       )}
 
       <div className='flex justify-between items-start mb-2'>
-        <span className='font-semibold'>{media.author}</span>
+        <span className=''>{media.author}</span>
         {media.date && (
-          <span className='text-sm text-gray-600'>
+          <span className='text-sm'>
             {media.date.toLocaleDateString()}
           </span>
         )}
