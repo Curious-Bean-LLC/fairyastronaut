@@ -145,6 +145,65 @@ function App() {
           <Route path='/music' element={<Music />} />
         </Routes>
       </main>
+
+      {/* Footer */}
+      <footer className='w-full mt-8 py-6 px-4 bg-yellow-100 border-t border-yellow-300'>
+        <div className='max-w-4xl mx-auto'>
+          {/* Navigation Links */}
+          <div className='flex items-center justify-center gap-3 mb-4 text-sm'>
+            <span
+              className='hover:underline cursor-pointer'
+              onClick={() => navigate('/')}
+            >
+              Home
+            </span>
+            <span>|</span>
+            <span
+              className='hover:underline cursor-pointer'
+              onClick={() => navigate('/newsletters')}
+            >
+              Newsletters
+            </span>
+            <span>|</span>
+            <span
+              className='hover:underline cursor-pointer'
+              onClick={() => navigate('/calendar')}
+            >
+              Calendar
+            </span>
+            <span>|</span>
+            <span
+              className='hover:underline cursor-pointer'
+              onClick={() => navigate('/play')}
+            >
+              Play Game
+            </span>
+            <span>|</span>
+            <span
+              className='hover:underline cursor-pointer'
+              onClick={() => navigate('/music')}
+            >
+              Music
+            </span>
+          </div>
+
+          {/* Contributors */}
+          <div className='text-center text-sm space-y-1'>
+            <p>ARTISTIC DIRECTOR + FAIRY | McKenzie Van Oss</p>
+            <p>FAIRY | Brady Wayne</p>
+            <p>
+              WEB DEV |{' '}
+              <a
+                href='https://curiousbean.dev'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Curious Bean LLC
+              </a>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
