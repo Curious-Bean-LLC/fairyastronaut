@@ -16,27 +16,45 @@ import {
 import { SiBandcamp } from 'react-icons/si'
 import './App.css'
 import Home from './pages/Home'
+import Newsletters from './pages/Newsletters'
+import Calendar from './pages/Calendar'
+import Game from './pages/Game'
+import Music from './pages/Music'
 
 function App() {
   const location = useLocation()
   const navigate = useNavigate()
-  const isHome = location.pathname === '/'
+  const isNewsletter = location.pathname === '/newsletters'
 
   return (
-    <>
-      <div
-        className={`header-container ${isHome ? 'home-layout' : 'compact-layout'}`}
-      >
-        <img
-          className='logo'
-          src='/fa-logo.png'
-          alt='Fairy Astronaut Logo'
-          onClick={() => navigate('/')}
-          style={{ cursor: 'pointer' }}
-        />
+    <div className='flex flex-col items-center gap-1'>
+      <div className='flex items-center justify-center gap-2'>
+        <h2
+          className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/newsletters' ? 'active-nav' : ''}`}
+          onClick={() => navigate('/newsletters')}
+        >
+          Newsletters
+        </h2>
+        <h2
+          className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/calendar' ? 'active-nav' : ''}`}
+          onClick={() => navigate('/calendar')}
+        >
+          Calendar
+        </h2>
+        <h2
+          className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/play' ? 'active-nav' : ''}`}
+          onClick={() => navigate('/play')}
+        >
+          Play Game
+        </h2>
+        <h2
+          className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/music' ? 'active-nav' : ''}`}
+          onClick={() => navigate('/music')}
+        >
+          Music
+        </h2>
       </div>
-
-      <div className='social-links'>
+      <div className='flex items-center justify-center gap-1'>
         <a
           href='https://www.instagram.com/FAIRYASTRONAUT/'
           target='_blank'
@@ -103,12 +121,28 @@ function App() {
         </a>
       </div>
 
-      <main className={`content ${isHome ? 'home-content' : 'nested-content'}`}>
+      <div>
+        <img
+          className='logo'
+          src={
+            isNewsletter ? '/thefairytimes-logo-removebg.png' : '/fa-logo.png'
+          }
+          alt='Fairy Astronaut Logo'
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        />
+      </div>
+
+      <main className='pt-5'>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/newsletters' element={<Newsletters />} />
+          <Route path='/calendar' element={<Calendar />} />
+          <Route path='/play' element={<Game />} />
+          <Route path='/music' element={<Music />} />
         </Routes>
       </main>
-    </>
+    </div>
   )
 }
 
