@@ -1,4 +1,5 @@
 export interface NewsletterMedia {
+  title?: string // Optional title for the media item
   author: string
   date?: Date
   body?: string // markdown text

@@ -9,6 +9,7 @@ export const july2026: Newsletter = {
     {
       author: AUTHORS.MCKENZIE,
       date: new Date('2026-07-01'),
+      title: 'Welcome to July!',
       body: '# Welcome to July!\n\nThe cosmic summer continues with stellar new releases and upcoming shows. Thank you for being part of this magical journey through the stars.',
       image: '/fa-logo.png',
       span: 4, // Full width hero

@@ -16,6 +16,10 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
 
   return (
     <div className={`newsletter-media border border-gray-300 p-4 rounded ${widthClass}`}>
+      {media.title && (
+        <h3 className='text-lg font-bold mb-3'>{media.title}</h3>
+      )}
+      
       {media.image && (
         <img
           src={media.image}
