@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-.logo {
-  height: 10vh;
-}
-
 .active-nav {
   background-color: black;
   color: white;

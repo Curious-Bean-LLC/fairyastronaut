@@ -18,7 +18,6 @@ import './App.css'
 import Home from './pages/Home'
 import Newsletters from './pages/Newsletters'
 import Calendar from './pages/Calendar'
-import Game from './pages/Game'
 import Music from './pages/Music'
 
 function App() {
@@ -26,19 +25,19 @@ function App() {
   const navigate = useNavigate()
 
   return (
-    <div className='flex flex-col items-center gap-1 bg-yellow-50'>
+    <div className={'flex flex-col items-center h-screen bg-yellow-50'}>
       {/* header */}
-      <div className='flex space-between items-center justify-between w-full px-4 py-2 bg-yellow-300'>
+      <div className='flex flex-wrap space-between items-center justify-center gap-4 w-full p-4 bg-yellow-300'>
         <div className=''>
           <img
-            className='logo'
+            className='h-25'
             src='/fa-logo.png'
             alt='Fairy Astronaut Logo'
             onClick={() => navigate('/')}
             style={{ cursor: 'pointer' }}
           />
         </div>
-        <div className='flex flex-col items-end'>
+        <div className='flex flex-col items-center'>
           {/* nav */}
           <div className='flex items-center justify-center gap-2'>
             <h2
@@ -52,12 +51,6 @@ function App() {
               onClick={() => navigate('/calendar')}
             >
               Calendar
-            </h2>
-            <h2
-              className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/play' ? 'active-nav' : ''}`}
-              onClick={() => navigate('/play')}
-            >
-              Play Game
             </h2>
             <h2
               className={`hover:underline cursor-pointer px-2 py-1 ${location.pathname === '/music' ? 'active-nav' : ''}`}
@@ -136,18 +129,17 @@ function App() {
         </div>
       </div>
 
-      <main className='pt-5'>
+      <main className='h-full'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/newsletters' element={<Newsletters />} />
           <Route path='/calendar' element={<Calendar />} />
-          <Route path='/play' element={<Game />} />
           <Route path='/music' element={<Music />} />
         </Routes>
       </main>
 
       {/* Footer */}
-      <footer className='w-full mt-8 py-6 px-4 bg-yellow-100 border-t border-yellow-300'>
+      <footer className='w-full py-6 px-4 bg-red-500'>
         <div className='max-w-4xl mx-auto'>
           {/* Navigation Links */}
           <div className='flex items-center justify-center gap-3 mb-4 text-sm'>
@@ -174,13 +166,6 @@ function App() {
             <span>|</span>
             <span
               className='hover:underline cursor-pointer'
-              onClick={() => navigate('/play')}
-            >
-              Play Game
-            </span>
-            <span>|</span>
-            <span
-              className='hover:underline cursor-pointer'
               onClick={() => navigate('/music')}
             >
               Music
@@ -190,7 +175,6 @@ function App() {
           {/* Contributors */}
           <div className='text-center text-sm space-y-1'>
             <p>ARTISTIC DIRECTOR + FAIRY | McKenzie Van Oss</p>
-            <p>FAIRY | Brady Wayne</p>
             <p>
               WEB DEV |{' '}
               <a

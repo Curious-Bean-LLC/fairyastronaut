@@ -28,25 +28,17 @@
   font-style: italic;
 }
 
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('/Inconsolata/static/Inconsolata-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Inconsolata';
-  src: url('/Inconsolata/static/Inconsolata-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-
 body {
   margin: 0;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'Courier Prime', monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Courier Prime', monospace;
+  font-style: italic;
 }
