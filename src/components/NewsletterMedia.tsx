@@ -30,14 +30,11 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
 
       {media.video && (
         <div className='mb-2'>
-          <a
-            href={media.video}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='text-blue-600 hover:underline'
-          >
-            Watch Video
-          </a>
+          <iframe
+            src={media.video}
+            className='w-full h-64 mb-2'
+            allowFullScreen
+          ></iframe>
         </div>
       )}
 
