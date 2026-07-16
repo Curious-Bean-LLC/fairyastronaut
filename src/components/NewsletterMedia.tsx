@@ -15,7 +15,7 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
   }[span]
 
   return (
-    <div className={`newsletter-media border border-yellow-600 p-4 ${widthClass}`}>
+    <div className={`newsletter-media border-1 border-black border-dotted p-4 ${widthClass}`}>
       {media.title && (
         <h3 className='text-lg mb-3'>{media.title}</h3>
       )}

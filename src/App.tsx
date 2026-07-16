@@ -25,7 +25,7 @@ function App() {
   const navigate = useNavigate()
 
   return (
-    <div className={'flex flex-col items-center h-screen bg-yellow-50'}>
+    <div className={'flex flex-col items-center bg-yellow-50'}>
       {/* header */}
       <div className='flex flex-wrap space-between items-center justify-center gap-4 w-full p-4 bg-yellow-300'>
         <div className=''>

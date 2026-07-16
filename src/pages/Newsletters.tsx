@@ -22,22 +22,22 @@ function Newsletters() {
   return (
     <div className='p-4 max-w-4xl mx-auto'>
       {/* Header - responsive layout */}
-      <div className='mb-8'>
+      <div className=''>
         {/* Mobile: stacked center-aligned, Desktop: space-between row */}
         <div className='flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center'>
           {/* Left side - Logo */}
           <div className='flex justify-start md:w-1/2'>
             <img
-              className='w-full h-auto object-contain'
+              className='w-90 h-auto object-contain'
               src='/thefairytimes-logo-removebg.png'
               alt='The Fairy Times Logo'
             />
           </div>
 
           {/* Right side - Newsletter title and date selector in row */}
-          <div className='flex flex-row items-center gap-4 md:w-1/2 md:justify-end'>
+          <div className='flex flex-row items-center gap-4 w-2/3 md:w-1/2 md:justify-end'>
             {selectedNewsletter.title && (
-              <h2 className='text-xl'>
+              <h2 className='text-xl break-words'>
                 {selectedNewsletter.title}
               </h2>
             )}
@@ -80,6 +80,7 @@ function Newsletters() {
             </div>
           </div>
         </div>
+        <div className='border-b-4 my-4 md:my-0 md:mb-4'></div>
       </div>
 
       {/* Current Newsletter Display */}
