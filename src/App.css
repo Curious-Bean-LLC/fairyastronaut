@@ -7,3 +7,35 @@
   background-color: #2563eb; /* Tailwind blue-600 */
   color: white;
 }
+
+/* Page content disappear animation */
+.page-content-exit {
+  animation: contentDisappear 1s ease-in-out forwards;
+}
+
+@keyframes contentDisappear {
+  0% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+}
+
+/* Page content appear animation */
+.page-content-enter {
+  animation: contentAppear 0.5s ease-in-out forwards;
+}
+
+@keyframes contentAppear {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}

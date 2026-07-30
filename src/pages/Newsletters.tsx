@@ -1,13 +1,21 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { newsletters, getNewsletterShorthand } from '../data/newsletters'
 import { getUpcomingDatesForNewsletter } from '../data/upcomingDates'
 import type { Newsletter } from '../types/newsletter'
 import NewsletterMedia from '../components/NewsletterMedia'
+import TheFairyTimesLogo from '../assets/thefairytimes-logo-transparent.png'
 
 function Newsletters() {
+  const [shouldAnimate, setShouldAnimate] = useState(true)
   const [selectedNewsletter, setSelectedNewsletter] = useState<Newsletter>(
     newsletters[0],
   )
+
+  useEffect(() => {
+    // Disable animation after first mount
+    const timer = setTimeout(() => setShouldAnimate(false), 1000)
+    return () => clearTimeout(timer)
+  }, [])
 
   // Dynamically get upcoming dates for the selected newsletter
   const upcomingDates = useMemo(
@@ -20,28 +28,28 @@ function Newsletters() {
   )
 
   return (
-    <div className='p-4 max-w-4xl mx-auto'>
+    <div className={`p-4 mx-auto ${shouldAnimate ? 'page-content-enter' : ''}`}>
       {/* Header - responsive layout */}
       <div className=''>
         {/* Mobile: stacked center-aligned, Desktop: space-between row */}
-        <div className='flex flex-col items-center gap-4 md:flex-row md:justify-between md:items-center'>
+        <div className='flex flex-col items-center gap-4 pb-2 md:flex-row md:justify-between md:pb-0 md:pr-2 bg-black text-white'>
           {/* Left side - Logo */}
           <div className='flex justify-start md:w-1/2'>
             <img
-              className='w-90 h-auto object-contain'
-              src='/thefairytimes-logo-removebg.png'
+              className='w-90 h-auto object-contain invert'
+              src={TheFairyTimesLogo}
               alt='The Fairy Times Logo'
             />
           </div>
 
           {/* Right side - Newsletter title and date selector in row */}
-          <div className='flex flex-row items-center gap-4 w-2/3 md:w-1/2 md:justify-end'>
+          <div className='flex flex-row items-center gap-4 w-2/3 md:w-1/2 md:justify-between'>
             {selectedNewsletter.title && (
               <h2 className='text-xl break-words'>
                 {selectedNewsletter.title}
               </h2>
             )}
-            
+
             <div className='relative'>
               <select
                 value={`${selectedNewsletter.year}-${selectedNewsletter.month}`}
@@ -88,44 +96,28 @@ function Newsletters() {
         {/* Newsletter Media - Newspaper Column Layout */}
         <div className='flex flex-wrap gap-4'>
           {selectedNewsletter.media.map((mediaItem, index) => (
-            <NewsletterMedia key={index} media={mediaItem} />
+            <NewsletterMedia key={index} media={mediaItem} index={index} />
           ))}
         </div>
 
         {/* Upcoming Dates Table */}
         {upcomingDates && upcomingDates.length > 0 && (
           <div className='mt-8'>
-            <h3 className='text-xl mb-3'>Upcoming Dates</h3>
-            <table className='w-full border-collapse border border-yellow-600'>
-              <thead>
-                <tr>
-                  <th className='border border-yellow-600 px-4 py-2 text-left'>
-                    Date
-                  </th>
-                  <th className='border border-yellow-600 px-4 py-2 text-left'>
-                    Type
-                  </th>
-                  <th className='border border-yellow-600 px-4 py-2 text-left'>
-                    Event
-                  </th>
-                  <th className='border border-yellow-600 px-4 py-2 text-left'>
-                    Location
-                  </th>
-                </tr>
-              </thead>
+            <h3 className='text-xl mb-3 p-2 bg-black text-white'>Upcoming Dates</h3>
+            <table className='w-full'>
               <tbody>
                 {upcomingDates.map((event, index) => (
                   <tr key={index} className='hover:bg-yellow-100'>
-                    <td className='border border-yellow-600 px-4 py-2'>
+                    <td className='px-4 py-2'>
                       {event.date.toLocaleDateString()}
                     </td>
-                    <td className='border border-yellow-600 px-4 py-2 capitalize'>
+                    <td className='px-4 py-2 capitalize'>
                       {event.type}
                     </td>
-                    <td className='border border-yellow-600 px-4 py-2'>
+                    <td className='px-4 py-2'>
                       {event.title}
                     </td>
-                    <td className='border border-yellow-600 px-4 py-2'>
+                    <td className='px-4 py-2'>
                       {event.location || '—'}
                     </td>
                   </tr>
