@@ -1,31 +1,22 @@
 import {
   BrowserRouter,
-  Routes,
   Route,
-  useNavigate,
+  Routes,
   useLocation,
+  useNavigate,
 } from 'react-router-dom'
-import {
-  FaInstagram,
-  FaFacebook,
-  FaSoundcloud,
-  FaYoutube,
-  FaTiktok,
-  FaSpotify,
-} from 'react-icons/fa'
-import { SiBandcamp } from 'react-icons/si'
 import './App.css'
-import Home from './pages/Home'
-import Newsletters from './pages/Newsletters'
 import Calendar from './pages/Calendar'
+import Home from './pages/Home'
 import Music from './pages/Music'
+import Newsletters from './pages/Newsletters'
 
 function App() {
   const location = useLocation()
   const navigate = useNavigate()
 
   return (
-    <div 
+    <div
       className={'flex flex-col items-center h-screen'}
       style={{ filter: 'url(#crumpled-paper)' }}
     >
@@ -40,12 +31,12 @@ function App() {
 
       {/* The hidden SVG filter that generates the physical wrinkles */}
       <svg
-        style={{ 
-          position: 'absolute', 
-          width: 0, 
+        style={{
+          position: 'absolute',
+          width: 0,
           height: 0,
           pointerEvents: 'none',
-          zIndex: -1
+          zIndex: -1,
         }}
         aria-hidden='true'
       >
@@ -58,7 +49,7 @@ function App() {
             result='noise'
           />
           {/* Convert noise to grayscale */}
-          <feColorMatrix 
+          <feColorMatrix
             in='noise'
             type='saturate'
             values='0'

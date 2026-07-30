@@ -1,14 +1,14 @@
-import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import {
-  FaInstagram,
   FaFacebook,
+  FaInstagram,
   FaSoundcloud,
-  FaYoutube,
-  FaTiktok,
   FaSpotify,
+  FaTiktok,
+  FaYoutube,
 } from 'react-icons/fa'
 import { SiBandcamp } from 'react-icons/si'
+import { useNavigate } from 'react-router-dom'
 import FairyAstronautLogo from '../assets/fa-logo.png'
 
 function Home() {
@@ -25,15 +25,43 @@ function Home() {
   }
 
   const socialLinks = [
-    { icon: FaInstagram, url: 'https://instagram.com/fairyastronaut', label: 'Instagram' },
-    { icon: FaFacebook, url: 'https://facebook.com/fairyastronaut', label: 'Facebook' },
-    { icon: FaSoundcloud, url: 'https://soundcloud.com/fairyastronaut', label: 'SoundCloud' },
-    { icon: FaYoutube, url: 'https://youtube.com/@fairyastronaut', label: 'YouTube' },
-    { icon: FaTiktok, url: 'https://tiktok.com/@fairy.astronaut', label: 'TikTok' },
-    { icon: FaSpotify, url: 'https://open.spotify.com/artist/2o2CoR0mS78JbibKCr4q4q?si=DGyw_99fQmWzusRd5lGhwA', label: 'Spotify' },
-    { icon: SiBandcamp, url: 'https://fairyastronaut.bandcamp.com', label: 'Bandcamp' },
+    {
+      icon: FaInstagram,
+      url: 'https://instagram.com/fairyastronaut',
+      label: 'Instagram',
+    },
+    {
+      icon: FaFacebook,
+      url: 'https://facebook.com/fairyastronaut',
+      label: 'Facebook',
+    },
+    {
+      icon: FaSoundcloud,
+      url: 'https://soundcloud.com/fairyastronaut',
+      label: 'SoundCloud',
+    },
+    {
+      icon: FaYoutube,
+      url: 'https://youtube.com/@fairyastronaut',
+      label: 'YouTube',
+    },
+    {
+      icon: FaTiktok,
+      url: 'https://tiktok.com/@fairy.astronaut',
+      label: 'TikTok',
+    },
+    {
+      icon: FaSpotify,
+      url: 'https://open.spotify.com/artist/2o2CoR0mS78JbibKCr4q4q?si=DGyw_99fQmWzusRd5lGhwA',
+      label: 'Spotify',
+    },
+    {
+      icon: SiBandcamp,
+      url: 'https://fairyastronaut.bandcamp.com',
+      label: 'Bandcamp',
+    },
   ]
-// https://open.spotify.com/artist/2o2CoR0mS78JbibKCr4q4q?si=DGyw_99fQmWzusRd5lGhwA
+
   return (
     <div
       className={`flex flex-col items-center justify-center gap-2 w-screen h-full relative ${
@@ -47,7 +75,7 @@ function Home() {
           className='w-250 h-auto'
         />
       </div>
-      
+
       <button
         onClick={() => setShowSocialDialog(!showSocialDialog)}
         className='absolute top-8 right-8 text-xl font-bold cursor-pointer hover:scale-110 transition-transform'

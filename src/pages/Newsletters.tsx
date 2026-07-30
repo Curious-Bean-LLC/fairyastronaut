@@ -1,9 +1,9 @@
-import { useState, useMemo, useEffect } from 'react'
-import { newsletters, getNewsletterShorthand } from '../data/newsletters'
+import { useEffect, useMemo, useState } from 'react'
+import TheFairyTimesLogo from '../assets/thefairytimes-logo-transparent.png'
+import NewsletterMedia from '../components/NewsletterMedia'
+import { getNewsletterShorthand, newsletters } from '../data/newsletters'
 import { getUpcomingDatesForNewsletter } from '../data/upcomingDates'
 import type { Newsletter } from '../types/newsletter'
-import NewsletterMedia from '../components/NewsletterMedia'
-import TheFairyTimesLogo from '../assets/thefairytimes-logo-transparent.png'
 
 function Newsletters() {
   const [shouldAnimate, setShouldAnimate] = useState(true)
@@ -103,7 +103,9 @@ function Newsletters() {
         {/* Upcoming Dates Table */}
         {upcomingDates && upcomingDates.length > 0 && (
           <div className='mt-8'>
-            <h3 className='text-xl mb-3 p-2 bg-black text-white'>Upcoming Dates</h3>
+            <h3 className='text-xl mb-3 p-2 bg-black text-white'>
+              Upcoming Dates
+            </h3>
             <table className='w-full'>
               <tbody>
                 {upcomingDates.map((event, index) => (
@@ -111,15 +113,9 @@ function Newsletters() {
                     <td className='px-4 py-2'>
                       {event.date.toLocaleDateString()}
                     </td>
-                    <td className='px-4 py-2 capitalize'>
-                      {event.type}
-                    </td>
-                    <td className='px-4 py-2'>
-                      {event.title}
-                    </td>
-                    <td className='px-4 py-2'>
-                      {event.location || '—'}
-                    </td>
+                    <td className='px-4 py-2 capitalize'>{event.type}</td>
+                    <td className='px-4 py-2'>{event.title}</td>
+                    <td className='px-4 py-2'>{event.location || '—'}</td>
                   </tr>
                 ))}
               </tbody>

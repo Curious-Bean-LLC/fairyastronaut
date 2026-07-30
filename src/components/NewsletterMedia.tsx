@@ -22,7 +22,7 @@ function getTitleColorClasses(index: number): string {
 
 function NewsletterMedia({ media, index }: NewsletterMediaProps) {
   const span = media.span || 2 // Default to half width
-  
+
   // Calculate width based on span (1=25%, 2=50%, 4=100%)
   const widthClass = {
     1: 'w-full md:w-[calc(25%-0.75rem)]',
@@ -34,9 +34,11 @@ function NewsletterMedia({ media, index }: NewsletterMediaProps) {
     // <div className={`newsletter-media border-1 border-black border-dotted p-4 ${widthClass}`}>
     <div className={`newsletter-media ${widthClass}`}>
       {media.title && (
-        <h3 className={`text-lg mb-3 p-2 ${getTitleColorClasses(index)}`}>{media.title}</h3>
+        <h3 className={`text-lg mb-3 p-2 ${getTitleColorClasses(index)}`}>
+          {media.title}
+        </h3>
       )}
-      
+
       {media.image && (
         <img
           src={`./src/assets/${media.image}`}
@@ -62,9 +64,7 @@ function NewsletterMedia({ media, index }: NewsletterMediaProps) {
       <div className='flex justify-between items-start mb-2 px-2 py-1 bg-gray-300'>
         <span className='text-sm'>{media.author}</span>
         {media.date && (
-          <span className='text-sm'>
-            {media.date.toLocaleDateString()}
-          </span>
+          <span className='text-sm'>{media.date.toLocaleDateString()}</span>
         )}
       </div>
     </div>
