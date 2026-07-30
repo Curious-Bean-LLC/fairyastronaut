@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Calendar from './pages/Calendar'
 import Home from './pages/Home'
@@ -12,9 +6,6 @@ import Music from './pages/Music'
 import Newsletters from './pages/Newsletters'
 
 function App() {
-  const location = useLocation()
-  const navigate = useNavigate()
-
   return (
     <div
       className={'flex flex-col items-center h-screen'}
