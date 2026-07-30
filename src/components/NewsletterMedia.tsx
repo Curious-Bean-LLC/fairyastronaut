@@ -2,25 +2,9 @@ import type { NewsletterMedia as NewsletterMediaType } from '../types/newsletter
 
 interface NewsletterMediaProps {
   media: NewsletterMediaType
-  index: number
 }
 
-// Helper function to determine title colors based on index
-function getTitleColorClasses(index: number): string {
-  const remainder = index % 3
-  switch (remainder) {
-    case 0:
-      return 'bg-red-600 text-white'
-    case 1:
-      return 'bg-blue-600 text-white'
-    case 2:
-      return 'bg-yellow-400 text-black'
-    default:
-      return 'bg-blue-600 text-white'
-  }
-}
-
-function NewsletterMedia({ media, index }: NewsletterMediaProps) {
+function NewsletterMedia({ media }: NewsletterMediaProps) {
   const span = media.span || 2 // Default to half width
 
   // Calculate width based on span (1=25%, 2=50%, 4=100%)
@@ -31,14 +15,7 @@ function NewsletterMedia({ media, index }: NewsletterMediaProps) {
   }[span]
 
   return (
-    // <div className={`newsletter-media border-1 border-black border-dotted p-4 ${widthClass}`}>
     <div className={`newsletter-media ${widthClass}`}>
-      {media.title && (
-        <h3 className={`text-lg mb-3 p-2 ${getTitleColorClasses(index)}`}>
-          {media.title}
-        </h3>
-      )}
-
       {media.image && (
         <img
           src={`./src/assets/${media.image}`}
@@ -56,6 +33,8 @@ function NewsletterMedia({ media, index }: NewsletterMediaProps) {
           ></iframe>
         </div>
       )}
+
+      {media.title && <h3 className='italic mb-4'>{media.title}</h3>}
 
       {media.body && (
         <div className='mb-2 whitespace-pre-wrap'>{media.body}</div>

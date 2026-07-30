@@ -34,23 +34,8 @@ function Newsletters() {
         {/* Mobile: stacked center-aligned, Desktop: space-between row */}
         <div className='flex flex-col items-center gap-4 pb-2 md:flex-row md:justify-between md:pb-0 md:pr-2 bg-black text-white'>
           {/* Left side - Logo */}
-          <div className='flex justify-start md:w-1/2'>
-            <img
-              className='w-90 h-auto object-contain invert'
-              src={TheFairyTimesLogo}
-              alt='The Fairy Times Logo'
-            />
-          </div>
-
-          {/* Right side - Newsletter title and date selector in row */}
-          <div className='flex flex-row items-center gap-4 w-2/3 md:w-1/2 md:justify-between'>
-            {selectedNewsletter.title && (
-              <h2 className='text-xl break-words'>
-                {selectedNewsletter.title}
-              </h2>
-            )}
-
-            <div className='relative'>
+          <div className='flex justify-between items-center w-full'>
+            <div className='relative pl-4'>
               <select
                 value={`${selectedNewsletter.year}-${selectedNewsletter.month}`}
                 onChange={(e) => {
@@ -86,6 +71,11 @@ function Newsletters() {
                 />
               </svg>
             </div>
+            <img
+              className='w-90 h-auto object-contain invert'
+              src={TheFairyTimesLogo}
+              alt='The Fairy Times Logo'
+            />
           </div>
         </div>
         <div className='border-b-4 my-4 md:my-0 md:mb-4'></div>
@@ -95,8 +85,8 @@ function Newsletters() {
       <div>
         {/* Newsletter Media - Newspaper Column Layout */}
         <div className='flex flex-wrap gap-4'>
-          {selectedNewsletter.media.map((mediaItem, index) => (
-            <NewsletterMedia key={index} media={mediaItem} index={index} />
+          {selectedNewsletter.media.map((mediaItem) => (
+            <NewsletterMedia key={mediaItem.title || mediaItem.image || mediaItem.video} media={mediaItem} />
           ))}
         </div>
 

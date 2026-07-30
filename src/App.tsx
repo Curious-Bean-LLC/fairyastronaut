@@ -9,7 +9,7 @@ function App() {
   return (
     <div
       className={'flex flex-col items-center h-screen'}
-      style={{ filter: 'url(#crumpled-paper)' }}
+      // style={{ filter: 'url(#crumpled-paper)' }}
     >
       <main className='h-full'>
         <Routes>

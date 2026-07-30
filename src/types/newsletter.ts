@@ -25,8 +25,8 @@ export interface Newsletter {
 // Author constants for filtering
 export const AUTHORS = {
   MCKENZIE: 'McKenzie Van Oss',
-  BRADY: 'Brady Wayne',
+  JOJO: 'Jojo Brickey',
   ANON_GUEST: 'Anonymous Guest',
 } as const
 
-export type Author = typeof AUTHORS[keyof typeof AUTHORS]
+export type Author = (typeof AUTHORS)[keyof typeof AUTHORS]
