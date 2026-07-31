@@ -16,11 +16,11 @@ function Home() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 bg-black text-white ${
+      className={`w-full h-full flex flex-col items-center justify-center gap-2 bg-black text-white ${
         isAnimating ? 'page-content-exit' : ''
       }`}
     >
-      <div className='flex flex-col items-center justify-center gap-8 py-28'>
+      <div className='flex flex-col items-center justify-center gap-8 py-28 px-10'>
         <img
           src={FairyAstronautLogo}
           alt='Fairy Astronaut Logo'

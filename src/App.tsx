@@ -7,8 +7,8 @@ import Newsletters from './pages/Newsletters'
 
 function App() {
   return (
-    <div>
-      <main>
+    <div className='w-full h-full'>
+      <main className='w-full h-full'>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/newsletters' element={<Newsletters />} />
