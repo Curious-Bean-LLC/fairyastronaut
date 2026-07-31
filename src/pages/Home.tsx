@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 w-screen h-full relative bg-black text-white ${
+      className={`flex flex-col items-center justify-center gap-2 bg-black text-white ${
         isAnimating ? 'page-content-exit' : ''
       }`}
     >

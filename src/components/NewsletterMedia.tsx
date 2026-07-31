@@ -20,7 +20,7 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
         <img
           src={`./src/assets/${media.image}`}
           alt='Newsletter media'
-          className='max-w-full h-auto mb-2'
+          className='w-full h-auto mb-2'
         />
       )}
 
