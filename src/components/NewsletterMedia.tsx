@@ -18,7 +18,7 @@ function NewsletterMedia({ media }: NewsletterMediaProps) {
     <div className={`newsletter-media ${widthClass}`}>
       {media.image && (
         <img
-          src={`./src/assets/${media.image}`}
+          src={media.image}
           alt='Newsletter media'
           className='w-full h-auto mb-2'
         />
